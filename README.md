@@ -32,10 +32,10 @@ For GitHub Pages: Settings → Pages → deploy from branch, root (`/`) of the c
 
 ## Layout
 
-The page wrapper is 1080px wide. Text sections (hero, steps, "who is this for",
-the deliverables list, FAQ) sit in a 720px `.narrow` reading column; the results
-grid uses the full width so the cards can run two across. The process steps run three
-across and collapse to one column under 768px, as does the results grid.
+Every section shares one content width: the `.wrap` container is 920px, giving
+880px of content once padding is subtracted. Video, process row, deliverables list,
+results grid, FAQ and guarantee all line up on the same edges. The process steps run
+three across and the results two across, both collapsing to one column under 768px.
 
 Section order follows a standard VSL offer page: hero and video, CTA, process, CTA,
 who it's for, what you get, CTA, results, CTA, FAQ, guarantee, closing CTA.
