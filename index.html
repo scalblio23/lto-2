@@ -226,16 +226,49 @@
     margin-bottom:28px;
   }
   .steps{
+    position:relative;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:16px;
     text-align:left;
   }
+  .steps::before{
+    content:"";
+    position:absolute;
+    inset:-60px -8%;
+    background:radial-gradient(70% 70% at 50% 45%,rgba(217,58,0,0.11) 0%,transparent 72%);
+    filter:blur(24px);
+    z-index:-1;
+  }
   .step-box{
-    background:var(--card);
-    border:1px solid var(--line);
+    background:linear-gradient(180deg,rgba(255,255,255,0.10) 0%,rgba(255,255,255,0.03) 100%);
+    backdrop-filter:blur(22px) saturate(150%);
+    -webkit-backdrop-filter:blur(22px) saturate(150%);
+    border:1px solid rgba(255,255,255,0.16);
+    border-radius:16px;
+    box-shadow:0 10px 34px rgba(0,0,0,0.45),inset 0 1px 0 rgba(255,255,255,0.16);
+    padding:22px;
+  }
+  .step-icon{
+    width:44px;
+    height:44px;
     border-radius:12px;
-    padding:20px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(180deg,rgba(217,58,0,0.28) 0%,rgba(217,58,0,0.08) 100%);
+    border:1px solid rgba(217,58,0,0.4);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.18);
+    margin-bottom:16px;
+  }
+  .step-icon svg{
+    width:22px;
+    height:22px;
+    fill:none;
+    stroke:var(--accent);
+    stroke-width:1.8;
+    stroke-linecap:round;
+    stroke-linejoin:round;
   }
   .step-label{
     font-size:14px;
@@ -558,14 +591,17 @@
 
   <div class="steps">
     <div class="step-box">
+      <div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg></div>
       <div class="step-label">Step 1</div>
       <p class="step-text">Craft your perfect funnel offer - designed to pull ONLY qualified bookings.</p>
     </div>
     <div class="step-box">
+      <div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M9 21V9"/></svg></div>
       <div class="step-label">Step 2</div>
       <p class="step-text">Design your funnel around your brand, style using our high converting formula.</p>
     </div>
     <div class="step-box">
+      <div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 16l9 5 9-5"/><path d="M3 12l9 5 9-5"/></svg></div>
       <div class="step-label">Step 3</div>
       <p class="step-text">Build the end to end funnel setup - leaving you with a fully built out booking funnel.</p>
     </div>

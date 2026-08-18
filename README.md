@@ -64,7 +64,8 @@ Content lives in one file, `index.html`:
 - **CTA** — the `.cta-block` (button + "Delivered in 48 hours" note) repeats after every
   section: hero, process, deliverables, results and the closing block. All five are the
   same markup, so edit them together. None have a link/handler yet.
-- **Steps** — the three `.step-box` blocks
+- **Steps** — the three `.step-box` blocks, each with an inline SVG in `.step-icon`;
+  the glass reads against the accent glow painted by `.steps::before`
 - **Social proof** — one `.wins` grid holding two card types: `.review` cards
   (avatar, name, industry, date, rating, headline, quote, media, category) for
   clients with a written testimonial, and `.win` cards (company, headline, image)
