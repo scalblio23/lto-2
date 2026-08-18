@@ -110,6 +110,10 @@
     letter-spacing:0.05em;
     padding:8px 16px;
   }
+  .pitch-copy{
+    text-align:left;
+    padding-right:120px;
+  }
   .pitch-lead{
     font-size:18px;
     margin-top:20px;
@@ -119,8 +123,7 @@
     text-align:left;
     display:grid;
     gap:10px;
-    width:fit-content;
-    margin:16px auto 0;
+    margin-top:16px;
   }
   .pain-list li{
     position:relative;
@@ -434,6 +437,9 @@
     .steps{
       grid-template-columns:1fr;
     }
+    .pitch-copy{
+      padding-right:0;
+    }
     .cta{
       padding:22px 24px;
       font-size:22px;
@@ -461,6 +467,7 @@
   <div class="pitch">
     <p class="pitch-warn">Warning: This funnel may max out your capacity.</p>
     <p class="sub-under">Ready for leads that ACTUALLY close?</p>
+    <div class="pitch-copy">
     <p class="pitch-lead">If you rely on bookings for your business and you want them fast...</p>
     <p class="pitch-lead">And perhaps</p>
     <ul class="pain-list">
@@ -472,6 +479,7 @@
     <p class="pitch-lead">This is for you. And it actually works. Here's why:</p>
     <p class="pitch-lead">The automated booking funnel is the SINGLE BEST WAY to generate qualified appointments at scale on Meta.</p>
     <p class="pitch-lead">Why?</p>
+    </div>
     <ol class="why-list">
       <li>It weeds out the tyre kickers - so you're only talking to qualified leads.</li>
       <li>It lets meta do all the heavy lifting. By building a funnel designed for appointments you TELL meta's AI to get leads that are ready to buy.</li>
