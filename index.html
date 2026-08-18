@@ -88,6 +88,64 @@
   }
   .cta:hover{opacity:.85;}
   .cta:focus-visible{outline:2px solid var(--text);outline-offset:2px;}
+  .pitch{
+    margin-top:48px;
+  }
+  .pitch .sub-under{
+    margin-top:20px;
+  }
+  .pitch-warn{
+    display:inline-block;
+    border:1px solid var(--accent);
+    border-radius:999px;
+    color:var(--accent);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    padding:8px 16px;
+  }
+  .pitch-lead{
+    font-size:18px;
+    margin-top:20px;
+  }
+  .why-list{
+    list-style:none;
+    counter-reset:why;
+    text-align:left;
+    display:grid;
+    gap:12px;
+    margin-top:20px;
+  }
+  .why-list li{
+    counter-increment:why;
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:16px 18px 16px 52px;
+    font-size:16px;
+    line-height:1.5;
+  }
+  .why-list li::before{
+    content:counter(why);
+    position:absolute;
+    left:20px;
+    top:16px;
+    color:var(--accent);
+    font-size:18px;
+    font-weight:800;
+  }
+  .price{
+    font-size:clamp(24px,4vw,32px);
+    font-weight:800;
+    margin-top:28px;
+  }
+  .price-note{
+    font-size:16px;
+    color:var(--muted);
+    margin-top:8px;
+  }
   .cta-block{
     margin-top:32px;
   }
@@ -365,6 +423,23 @@
   <div class="cta-block">
     <button class="cta">Get Started</button>
     <p class="cta-note">Delivered in 48 hours</p>
+  </div>
+
+
+  <div class="pitch">
+    <p class="pitch-warn">Warning: This funnel may max out your capacity.</p>
+    <p class="sub-under">Ready for leads that ACTUALLY close?</p>
+    <p class="pitch-lead">The automated booking funnel is the SINGLE BEST WAY to generate qualified appointments at scale on Meta.</p>
+    <p class="pitch-lead">Why?</p>
+    <ol class="why-list">
+      <li>It weeds out the tyre kickers - so you're only talking to qualified leads.</li>
+      <li>It lets meta do all the heavy lifting. By building a funnel designed for appointments you TELL meta's AI to get leads that are ready to buy.</li>
+      <li>It's automatic. Once you've set it up. You have an asset that spits out new appointments like popcorn, giving you the ability to scale your business as fast as you can handle them.</li>
+    </ol>
+    <p class="pitch-lead">And the best part?</p>
+    <p class="price">Get it all for just $48</p>
+    <p class="price-note">That's 95% OFF our usual price of a $5000 funnel build.</p>
+    <p class="pitch-lead">And don't take our word for it, that this works - check out the case studies below....</p>
   </div>
 
   <p class="sub-under">How does this work?</p>

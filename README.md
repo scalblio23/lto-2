@@ -45,7 +45,7 @@ Every section shares one content width: the `.wrap` container is 920px, giving
 results grid, FAQ and guarantee all line up on the same edges. The process steps run
 three across and the results two across, both collapsing to one column under 768px.
 
-Section order follows a standard VSL offer page: hero and video, CTA, process, CTA,
+Section order follows a standard VSL offer page: hero and video, CTA, pitch, process, CTA,
 who it's for, what you get, CTA, social proof, CTA, FAQ, guarantee, closing CTA.
 
 ## Editing the page
@@ -54,6 +54,8 @@ Content lives in one file, `index.html`:
 
 - **Headline** — top of `.wrap`
 - **Video** — replace the whole `<div class="video-placeholder">…</div>` block with your embed code
+- **Pitch** — the `.pitch` block under the hero CTA: warning pill, hook heading,
+  the three-reason `.why-list`, and the `$48` price lines
 - **CTA** — the `.cta-block` (button + "Delivered in 48 hours" note) repeats after every
   section: hero, process, deliverables, results and the closing block. All five are the
   same markup, so edit them together. None have a link/handler yet.
@@ -68,6 +70,9 @@ Content lives in one file, `index.html`:
 - **Closing** — "Get Started Today" heading and the final CTA
 
 ### Known TODOs
+
+- The pitch block says "95% OFF our usual price of a $5000 funnel build", but $48 off
+  $5000 is 99% off. Either the percentage or one of the prices needs correcting.
 
 - Steps 1–3 are placeholder text.
 - The CTA buttons don't do anything yet — wire all five to the booking/calendar link.
