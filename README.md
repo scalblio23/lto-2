@@ -56,6 +56,9 @@ Content lives in one file, `index.html`:
 
 - **Headline** — top of `.wrap`
 - **Video** — replace the whole `<div class="video-placeholder">…</div>` block with your embed code
+- **Stats / clients** — `.stats` (800+, $7m+, 8 years) and the `.clients` name row,
+  between the pitch and the process section
+- **Sticky CTA** — `.sticky-cta` at the end of `<body>`, shown only under 768px
 - **Pitch** — the `.pitch` block under the hero CTA: warning pill, hook heading,
   the "tried everything" `.pain-list`, the three-reason `.why-list`, and the `$48`
   price lines
@@ -78,7 +81,12 @@ Content lives in one file, `index.html`:
   $5000 is 99% off. Either the percentage or one of the prices needs correcting.
 
 - Steps 1–3 are placeholder text.
-- The CTA buttons don't do anything yet — wire all five to the booking/calendar link.
+- The CTA buttons don't do anything yet — wire all six (five inline plus the sticky
+  mobile bar) to the booking/checkout link.
+- There is no checkout. The page sells at $48 with no way to pay.
+- No Meta Pixel. The head has a TODO where the base code goes; without it Meta can't
+  optimise for appointments and you can't retarget.
+- `og:url` and `og:image` are still TODO in the head — sharing the link shows no card.
 - The hero video is a placeholder.
 - Jordan appears twice: once as the home renovations testimonial, once as the roofing
   company result. Confirm these are different clients, or drop one.
