@@ -30,6 +30,14 @@ Any static host works (GitHub Pages, Netlify, Vercel, Cloudflare Pages, S3).
 
 For GitHub Pages: Settings → Pages → deploy from branch, root (`/`) of the chosen branch.
 
+## Theme
+
+Colours are CSS custom properties on `:root` in `index.html` — `--bg`, `--bg-grad`,
+`--card`, `--surface`, `--text`, `--muted`, `--line`, `--accent`. The page is dark:
+a black-to-charcoal vertical gradient behind the body, white text, muted grey for
+secondary copy, and cards on their own subtle dark gradient. Editing those eight
+values reskins the whole page; nothing else hardcodes a colour.
+
 ## Layout
 
 Every section shares one content width: the `.wrap` container is 920px, giving

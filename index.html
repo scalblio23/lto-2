@@ -5,11 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Automated Booking Funnel in 48 Hours — Or You Don't Pay</title>
 <style>
+  :root{
+    --bg:#000000;
+    --bg-grad:linear-gradient(180deg,#000000 0%,#0e0e0e 45%,#1c1c1c 100%);
+    --card:linear-gradient(180deg,#161616 0%,#0d0d0d 100%);
+    --surface:#141414;
+    --text:#ffffff;
+    --muted:#9a9a9a;
+    --line:#2a2a2a;
+    --accent:#D93A00;
+  }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:#ffffff;
-    color:#000000;
+    background:var(--bg);
+    background-image:var(--bg-grad);
+    background-attachment:fixed;
+    color:var(--text);
     -webkit-font-smoothing:antialiased;
   }
   .wrap{
@@ -32,8 +44,8 @@
     position:relative;
     width:100%;
     aspect-ratio:16/9;
-    background:#f5f5f5;
-    border:1px solid #e5e5e5;
+    background:var(--surface);
+    border:1px solid var(--line);
     border-radius:12px;
     display:flex;
     flex-direction:column;
@@ -44,27 +56,27 @@
   .play{
     width:64px;height:64px;
     border-radius:50%;
-    border:2px solid #000000;
+    border:2px solid var(--text);
     display:flex;align-items:center;justify-content:center;
   }
   .play::after{
     content:"";
     border-style:solid;
     border-width:12px 0 12px 20px;
-    border-color:transparent transparent transparent #000000;
+    border-color:transparent transparent transparent var(--text);
     margin-left:4px;
   }
   .video-placeholder span{
     font-size:13px;
-    color:#888888;
+    color:var(--muted);
     text-transform:uppercase;
     letter-spacing:0.05em;
   }
 
   .cta{
     display:inline-block;
-    background:#D93A00;
-    color:#ffffff;
+    background:var(--accent);
+    color:var(--text);
     border:none;
     border-radius:10px;
     padding:24px 72px;
@@ -75,13 +87,13 @@
     transition:opacity .15s ease;
   }
   .cta:hover{opacity:.85;}
-  .cta:focus-visible{outline:2px solid #000000;outline-offset:2px;}
+  .cta:focus-visible{outline:2px solid var(--text);outline-offset:2px;}
   .cta-block{
     margin-top:32px;
   }
   .cta-note{
     font-size:14px;
-    color:#888888;
+    color:var(--muted);
     margin-top:10px;
   }
   .sub-under{
@@ -99,7 +111,8 @@
     text-align:left;
   }
   .step-box{
-    border:1px solid #e5e5e5;
+    background:var(--card);
+    border:1px solid var(--line);
     border-radius:12px;
     padding:20px 22px;
   }
@@ -112,7 +125,7 @@
   }
   .step-text{
     font-size:16px;
-    color:#888888;
+    color:var(--muted);
   }
   .who-text{
     font-size:18px;
@@ -126,7 +139,7 @@
   .get-list li{
     font-size:17px;
     padding:12px 0 12px 32px;
-    border-bottom:1px solid #e5e5e5;
+    border-bottom:1px solid var(--line);
     position:relative;
   }
   .get-list li::before{
@@ -138,14 +151,14 @@
   .get-list li:last-child{border-bottom:none;}
   .get-list .bonus span{
     font-weight:800;
-    color:#D93A00;
+    color:var(--accent);
   }
   .faq{
     margin:0 auto;
     text-align:left;
   }
   .faq details{
-    border-bottom:1px solid #e5e5e5;
+    border-bottom:1px solid var(--line);
     padding:14px 0;
   }
   .faq summary{
@@ -168,10 +181,11 @@
   .faq details p{
     margin-top:10px;
     font-size:16px;
-    color:#888888;
+    color:var(--muted);
   }
   .review{
-    border:1px solid #e5e5e5;
+    background:var(--card);
+    border:1px solid var(--line);
     border-radius:12px;
     padding:18px;
     display:flex;
@@ -187,8 +201,8 @@
     width:32px;
     height:32px;
     border-radius:50%;
-    background:#D93A00;
-    color:#ffffff;
+    background:var(--accent);
+    color:var(--text);
     font-size:14px;
     font-weight:800;
     display:flex;
@@ -206,15 +220,15 @@
   }
   .review-meta{
     font-size:12px;
-    color:#888888;
+    color:var(--muted);
   }
   .review-date{
     font-size:12px;
-    color:#888888;
+    color:var(--muted);
     white-space:nowrap;
   }
   .stars{
-    color:#D93A00;
+    color:var(--accent);
     font-size:14px;
     letter-spacing:2px;
     margin-bottom:8px;
@@ -226,7 +240,7 @@
   }
   .review-text{
     font-size:14px;
-    color:#888888;
+    color:var(--muted);
     line-height:1.5;
     margin-bottom:14px;
   }
@@ -252,7 +266,7 @@
   }
   .review-verified{
     font-size:12px;
-    color:#888888;
+    color:var(--muted);
     text-transform:uppercase;
     letter-spacing:0.05em;
     margin-top:auto;
@@ -263,7 +277,8 @@
     margin-top:4px;
   }
   .guarantee{
-    border:1px solid #e5e5e5;
+    background:var(--card);
+    border:1px solid var(--line);
     border-radius:12px;
     padding:24px;
     margin:48px auto 0;
@@ -275,7 +290,7 @@
   }
   .guarantee-text{
     font-size:16px;
-    color:#888888;
+    color:var(--muted);
   }
   .wins{
     display:grid;
@@ -284,14 +299,15 @@
     text-align:left;
   }
   .win{
-    border:1px solid #e5e5e5;
+    background:var(--card);
+    border:1px solid var(--line);
     border-radius:12px;
     padding:18px;
     text-align:left;
   }
   .win-meta{
     font-size:13px;
-    color:#888888;
+    color:var(--muted);
     text-transform:uppercase;
     letter-spacing:0.05em;
     margin-bottom:4px;
