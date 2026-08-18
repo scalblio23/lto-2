@@ -55,7 +55,8 @@ Content lives in one file, `index.html`:
 - **Headline** — top of `.wrap`
 - **Video** — replace the whole `<div class="video-placeholder">…</div>` block with your embed code
 - **Pitch** — the `.pitch` block under the hero CTA: warning pill, hook heading,
-  the three-reason `.why-list`, and the `$48` price lines
+  the "tried everything" `.pain-list`, the three-reason `.why-list`, and the `$48`
+  price lines
 - **CTA** — the `.cta-block` (button + "Delivered in 48 hours" note) repeats after every
   section: hero, process, deliverables, results and the closing block. All five are the
   same markup, so edit them together. None have a link/handler yet.

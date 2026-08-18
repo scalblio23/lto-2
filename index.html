@@ -109,6 +109,26 @@
     font-size:18px;
     margin-top:20px;
   }
+  .pain-list{
+    list-style:none;
+    text-align:left;
+    display:grid;
+    gap:10px;
+    width:fit-content;
+    margin:16px auto 0;
+  }
+  .pain-list li{
+    position:relative;
+    padding-left:32px;
+    font-size:17px;
+    color:var(--muted);
+  }
+  .pain-list li::before{
+    content:"\2715";
+    position:absolute;
+    left:8px;
+    font-weight:800;
+  }
   .why-list{
     list-style:none;
     counter-reset:why;
@@ -429,6 +449,15 @@
   <div class="pitch">
     <p class="pitch-warn">Warning: This funnel may max out your capacity.</p>
     <p class="sub-under">Ready for leads that ACTUALLY close?</p>
+    <p class="pitch-lead">If you rely on bookings for your business and you want them fast...</p>
+    <p class="pitch-lead">And perhaps</p>
+    <ul class="pain-list">
+      <li>you've tried the agencies,</li>
+      <li>you've tried running ads yourself,</li>
+      <li>you've tried the 2-day workshops and nothing seems to work.</li>
+    </ul>
+    <p class="pitch-lead">And you just want qualified bookings coming into your calendar daily.</p>
+    <p class="pitch-lead">This is for you. And it actually works. Here's why:</p>
     <p class="pitch-lead">The automated booking funnel is the SINGLE BEST WAY to generate qualified appointments at scale on Meta.</p>
     <p class="pitch-lead">Why?</p>
     <ol class="why-list">
