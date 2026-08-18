@@ -65,7 +65,7 @@ Content lives in one file, `index.html`:
 - **CTA** — the `.cta-block` (button + "Delivered in 48 hours" note) repeats after every
   section: hero, process, deliverables, results and the closing block. All five are the
   same markup, so edit them together. None have a link/handler yet.
-- **Steps** — the three `.step-box` blocks still contain placeholder copy
+- **Steps** — the three `.step-box` blocks
 - **Social proof** — one `.wins` grid holding two card types: `.review` cards
   (avatar, name, industry, date, rating, headline, quote, media, category) for
   clients with a written testimonial, and `.win` cards (company, headline, image)
@@ -80,7 +80,6 @@ Content lives in one file, `index.html`:
 - The pitch block says "95% OFF our usual price of a $5000 funnel build", but $48 off
   $5000 is 99% off. Either the percentage or one of the prices needs correcting.
 
-- Steps 1–3 are placeholder text.
 - The CTA buttons don't do anything yet — wire all six (five inline plus the sticky
   mobile bar) to the booking/checkout link.
 - There is no checkout. The page sells at $48 with no way to pay.
