@@ -33,7 +33,9 @@ For GitHub Pages: Settings → Pages → deploy from branch, root (`/`) of the c
 ## Theme
 
 Colours are CSS custom properties on `:root` in `index.html` — `--bg`, `--bg-grad`,
-`--card`, `--surface`, `--text`, `--muted`, `--line`, `--accent`. The page is dark:
+`--card`, `--surface`, `--text`, `--muted`, `--line`, `--accent`, plus `--danger`
+/`--danger-glow` for the crossed list and `--success`/`--success-glow`/`--glass` for
+the numbered reason cards. The page is dark:
 a black-to-charcoal vertical gradient behind the body, white text, muted grey for
 secondary copy, and cards on their own subtle dark gradient. Editing those eight
 values reskins the whole page; nothing else hardcodes a colour.
