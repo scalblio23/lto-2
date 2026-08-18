@@ -56,8 +56,7 @@ Content lives in one file, `index.html`:
 
 - **Headline** — top of `.wrap`
 - **Video** — replace the whole `<div class="video-placeholder">…</div>` block with your embed code
-- **Stats / clients** — `.stats` (800+, $7m+, 8 years) and the `.clients` name row,
-  between the pitch and the process section
+- **Stats** — `.stats` (800+, $7m+, 8 years), between the pitch and the process section
 - **Sticky CTA** — `.sticky-cta` at the end of `<body>`, shown only under 768px
 - **Pitch** — the `.pitch` block under the hero CTA: warning pill, hook heading,
   the "tried everything" `.pain-list`, the three-reason `.why-list`, and the `$48`
