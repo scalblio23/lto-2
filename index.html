@@ -14,6 +14,8 @@
     --muted:#9a9a9a;
     --line:#2a2a2a;
     --accent:#D93A00;
+    --danger:#ff3b30;
+    --danger-glow:rgba(255,59,48,0.55);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{
@@ -121,13 +123,16 @@
     position:relative;
     padding-left:32px;
     font-size:17px;
-    color:var(--muted);
+    font-weight:600;
+    color:var(--danger);
+    text-shadow:0 0 12px var(--danger-glow);
   }
   .pain-list li::before{
     content:"\2715";
     position:absolute;
     left:8px;
     font-weight:800;
+    text-shadow:0 0 16px var(--danger-glow),0 0 6px var(--danger-glow);
   }
   .why-list{
     list-style:none;
