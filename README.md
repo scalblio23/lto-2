@@ -30,6 +30,12 @@ Any static host works (GitHub Pages, Netlify, Vercel, Cloudflare Pages, S3).
 
 For GitHub Pages: Settings → Pages → deploy from branch, root (`/`) of the chosen branch.
 
+## Layout
+
+The page wrapper is 1080px wide. Text sections (hero, steps, "who is this for",
+the deliverables list, FAQ) sit in a 720px `.narrow` reading column; the results
+grid uses the full width so the cards can run two across.
+
 ## Editing the page
 
 Content lives in one file, `index.html`:
@@ -38,7 +44,7 @@ Content lives in one file, `index.html`:
 - **Video** — replace the whole `<div class="video-placeholder">…</div>` block with your embed code
 - **CTA** — the `<button class="cta">` (currently has no link/handler; point it at your booking URL)
 - **Steps** — the three `.step-box` blocks still contain placeholder copy
-- **Results** — `.win` cards; images use remote URLs, videos are YouTube iframes
+- **Results** — `.win` cards in a two-column grid (`.wins`), collapsing to one column under 768px; images use remote URLs, videos are YouTube iframes
 - **FAQ** — `<details>` elements in `.faq`
 
 ### Known TODOs
