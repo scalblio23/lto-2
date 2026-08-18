@@ -38,8 +38,7 @@ results grid, FAQ and guarantee all line up on the same edges. The process steps
 three across and the results two across, both collapsing to one column under 768px.
 
 Section order follows a standard VSL offer page: hero and video, CTA, process, CTA,
-who it's for, what you get, CTA, testimonials, CTA, results, CTA, FAQ, guarantee,
-closing CTA.
+who it's for, what you get, CTA, social proof, CTA, FAQ, guarantee, closing CTA.
 
 ## Editing the page
 
@@ -51,9 +50,11 @@ Content lives in one file, `index.html`:
   section: hero, process, deliverables, results and the closing block. All five are the
   same markup, so edit them together. None have a link/handler yet.
 - **Steps** — the three `.step-box` blocks still contain placeholder copy
-- **Testimonials** — `.review` cards in a three-column grid (`.reviews`), collapsing to
-  one column under 768px. Copy is taken verbatim from scalbl.io.
-- **Results** — `.win` cards in a two-column grid (`.wins`), collapsing to one column under 768px; images use remote URLs, videos are YouTube iframes
+- **Social proof** — one `.wins` grid holding two card types: `.review` cards
+  (avatar, name, industry, date, rating, headline, quote, media, category) for
+  clients with a written testimonial, and `.win` cards (company, headline, image)
+  for results with no quote. Two columns, one under 768px. Images use remote URLs,
+  videos are YouTube iframes. Testimonial copy is verbatim from scalbl.io.
 - **FAQ** — `<details>` elements in `.faq`
 - **Guarantee** — `.guarantee` block after the FAQ
 - **Closing** — "Get Started Today" heading and the final CTA
@@ -63,8 +64,8 @@ Content lives in one file, `index.html`:
 - Steps 1–3 are placeholder text.
 - The CTA buttons don't do anything yet — wire all five to the booking/calendar link.
 - The hero video is a placeholder.
-- Three testimonials from scalbl.io are missing (Property, Plumbing, Law Firm) — they
-  were cut off in the source screenshot.
-- The Jordan, Brian and Puneet testimonials carry video embeds on scalbl.io; those same
-  videos already appear in the results section here, so they are not duplicated.
+- Jordan appears twice: once as the home renovations testimonial, once as the roofing
+  company result. Confirm these are different clients, or drop one.
+- Pascal (plumbing) and Wilco Relining (pipe relining) may be the same client under a
+  personal and a company name. Confirm before publishing.
 - Result images are hot-linked from an external CDN; move them into `assets/` if you want them self-hosted.

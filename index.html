@@ -170,12 +170,6 @@
     font-size:16px;
     color:#888888;
   }
-  .reviews{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:16px;
-    text-align:left;
-  }
   .review{
     border:1px solid #e5e5e5;
     border-radius:12px;
@@ -235,6 +229,26 @@
     color:#888888;
     line-height:1.5;
     margin-bottom:14px;
+  }
+  .review img{
+    width:100%;
+    border-radius:8px;
+    display:block;
+    margin-bottom:14px;
+  }
+  .review-video{
+    position:relative;
+    aspect-ratio:16/9;
+    border-radius:8px;
+    overflow:hidden;
+    margin-bottom:14px;
+  }
+  .review-video iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
   }
   .review-verified{
     font-size:12px;
@@ -314,11 +328,6 @@
     .steps{
       grid-template-columns:1fr;
     }
-    .reviews{
-      grid-template-columns:1fr;
-      max-width:560px;
-      margin:0 auto;
-    }
     .cta{
       padding:22px 24px;
       font-size:22px;
@@ -385,10 +394,10 @@
     <p class="cta-note">Delivered in 48 hours</p>
   </div>
 
-  <p class="sub-under">What Our Clients Say</p>
+  <p class="sub-under">We've Worked With 800+ Businesses<br>Check Out Just Some Of The Results</p>
   <p class="who-text" style="margin-bottom:20px;">Real businesses. Real results.</p>
 
-  <div class="reviews">
+  <div class="wins">
     <div class="review">
       <div class="review-head">
         <div class="avatar">J</div>
@@ -401,6 +410,7 @@
       <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
       <p class="review-title">+$100k in sales in one month</p>
       <p class="review-text">Genuinely changed the trajectory of the business. We added $100k in new sales in 30 days for our home reno company — most of it came from leads we previously would've ignored. Setter handled the chase, ads delivered the volume.</p>
+      <div class="review-video"><iframe src="https://www.youtube.com/embed/zMFzkbXxjuE" title="Jordan testimonial" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
       <p class="review-verified">Verified buyer</p>
       <p class="review-cat">Home Renovations</p>
     </div>
@@ -416,6 +426,7 @@
       <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
       <p class="review-title">$20–30k/m extra, consistently</p>
       <p class="review-text">For a financial planning firm, lead quality is everything. The qualifying process they put in place means I only get on calls with people who fit. Now adding $20–30k a month on top of what we were doing before.</p>
+      <div class="review-video"><iframe src="https://www.youtube.com/embed/d91Gwg-vyaU" title="Brian testimonial" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
       <p class="review-verified">Verified buyer</p>
       <p class="review-cat">Financial Planning</p>
     </div>
@@ -431,8 +442,55 @@
       <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
       <p class="review-title">$4m in settlements in 30 days</p>
       <p class="review-text">Brokerage growth is brutal without consistent lead flow. Their setup booked enough qualified appointments to settle $4m in a single month. Pipeline has never been healthier.</p>
+      <div class="review-video"><iframe src="https://www.youtube.com/embed/f5UezE2b1zQ" title="Puneet testimonial" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
       <p class="review-verified">Verified buyer</p>
       <p class="review-cat">Mortgage Broker</p>
+    </div>
+    <div class="review">
+      <div class="review-head">
+        <div class="avatar">L</div>
+        <div class="review-who">
+          <p class="review-name">Lachlan</p>
+          <p class="review-meta">AU &middot; Buyers Agency</p>
+        </div>
+        <p class="review-date">Feb 26, 2026</p>
+      </div>
+      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="review-title">$200k+ in sales for the agency</p>
+      <p class="review-text">Generated $200k+ in sales for our buyers agency / property development brand. The system gets buyer enquiries that are actually serious — not tyre-kickers. Game-changer for high-ticket sales.</p>
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/8U93hLuau7R9BL259spY/media/699b17a855d8bc2035363cc4.jpg" alt="Lachlan's results" loading="lazy">
+      <p class="review-verified">Verified buyer</p>
+      <p class="review-cat">Property</p>
+    </div>
+    <div class="review">
+      <div class="review-head">
+        <div class="avatar">P</div>
+        <div class="review-who">
+          <p class="review-name">Pascal</p>
+          <p class="review-meta">AU &middot; Plumbing</p>
+        </div>
+        <p class="review-date">Mar 15, 2026</p>
+      </div>
+      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="review-title">+$50k/m for the plumbing biz</p>
+      <p class="review-text">Trades guys don't have time to chase leads — we're on the tools. Their setter does the calling so I just rock up to the quotes. Pulled in an extra $50k a month and the calendar stays full.</p>
+      <p class="review-verified">Verified buyer</p>
+      <p class="review-cat">Plumbing</p>
+    </div>
+    <div class="review">
+      <div class="review-head">
+        <div class="avatar">I</div>
+        <div class="review-who">
+          <p class="review-name">Imran</p>
+          <p class="review-meta">AU &middot; Khan Legal</p>
+        </div>
+        <p class="review-date">Feb 04, 2026</p>
+      </div>
+      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="review-title">30+ booked calls every month</p>
+      <p class="review-text">Khan Legal gets 30+ booked calls a month with this system — consistent, every month. The intake side runs itself now so I can actually focus on the legal work.</p>
+      <p class="review-verified">Verified buyer</p>
+      <p class="review-cat">Law Firm</p>
     </div>
     <div class="review">
       <div class="review-head">
@@ -464,45 +522,30 @@
       <p class="review-verified">Verified buyer</p>
       <p class="review-cat">Agency Owner</p>
     </div>
-  </div>
-
-  <div class="cta-block">
-    <button class="cta">Get Started</button>
-    <p class="cta-note">Delivered in 48 hours</p>
-  </div>
-
-  <p class="sub-under">We've Worked With 800+ Businesses<br>Check Out Just Some Of The Results</p>
-
-  <div class="wins">
+    <div class="review">
+      <div class="review-head">
+        <div class="avatar">M</div>
+        <div class="review-who">
+          <p class="review-name">Michael</p>
+          <p class="review-meta">AU &middot; Education Brand</p>
+        </div>
+        <p class="review-date">Dec 19, 2025</p>
+      </div>
+      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="review-title">200 leads/m for the education brand</p>
+      <p class="review-text">Scaled the education brand to 200 leads a month consistently. The combo of paid ads + setter is brutal in the best possible way — no lead falls through the cracks.</p>
+      <p class="review-verified">Verified buyer</p>
+      <p class="review-cat">Education</p>
+    </div>
     <div class="win">
       <div class="win-meta">Jordan · Roofing Company</div>
       <div class="win-title">Grew from $2k/month to $111k/month</div>
       <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/8U93hLuau7R9BL259spY/media/68f98f4687b77c4ea42ecfb9.png" alt="Jordan's roofing company results" loading="lazy">
     </div>
     <div class="win">
-      <div class="win-meta">Brian · Redwood Finance</div>
-      <div class="win-title">Added $40k in new clients in 2 months</div>
-      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/8U93hLuau7R9BL259spY/media/68f98ef9778d65cba363ae3b.png" alt="Brian's Redwood Finance results" loading="lazy">
-    </div>
-    <div class="win">
-      <div class="win-meta">Puneet · Credzone Mortgage Broking</div>
-      <div class="win-title">4 deals in one month for his brokerage</div>
-      <div class="win-video"><iframe src="https://www.youtube.com/embed/f5UezE2b1zQ" title="Puneet testimonial" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-    </div>
-    <div class="win">
-      <div class="win-meta">Jordan · My Reno Quotes</div>
-      <div class="win-title">Added $100k in sales in 2 months</div>
-      <div class="win-video"><iframe src="https://www.youtube.com/embed/zMFzkbXxjuE" title="Jordan testimonial" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-    </div>
-    <div class="win">
       <div class="win-meta">Mohammed · Haute Kitchen</div>
       <div class="win-title">Closed a $35,000 kitchen build in week 1</div>
       <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/8U93hLuau7R9BL259spY/media/699b12c6f714ee5017c802fd.jpg" alt="Mohammed's Haute Kitchen result" loading="lazy">
-    </div>
-    <div class="win">
-      <div class="win-meta">Brian · Redwood Finance</div>
-      <div class="win-title">Brian's second wave — more growth</div>
-      <div class="win-video"><iframe src="https://www.youtube.com/embed/d91Gwg-vyaU" title="Brian testimonial" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
     </div>
     <div class="win">
       <div class="win-meta">Andrew · Airbnb Noosa</div>
@@ -513,11 +556,6 @@
       <div class="win-meta">Mitesh · Think &amp; Grow Finance</div>
       <div class="win-title">Quality mortgage broking clients every month</div>
       <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/8U93hLuau7R9BL259spY/media/699b1650f714eeae37c8a5b8.jpg" alt="Mitesh's Think &amp; Grow Finance results" loading="lazy">
-    </div>
-    <div class="win">
-      <div class="win-meta">Lachlan · Strategic Investment Network</div>
-      <div class="win-title">Buyers agency landed 7 deals in month 1</div>
-      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/8U93hLuau7R9BL259spY/media/699b17a855d8bc2035363cc4.jpg" alt="Lachlan's Strategic Investment Network results" loading="lazy">
     </div>
     <div class="win">
       <div class="win-meta">Wilco Relining · Sydney</div>
