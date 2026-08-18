@@ -170,6 +170,84 @@
     font-size:16px;
     color:#888888;
   }
+  .reviews{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+    text-align:left;
+  }
+  .review{
+    border:1px solid #e5e5e5;
+    border-radius:12px;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+  }
+  .review-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  .avatar{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:#D93A00;
+    color:#ffffff;
+    font-size:14px;
+    font-weight:800;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .review-who{
+    flex:1;
+    min-width:0;
+  }
+  .review-name{
+    font-size:15px;
+    font-weight:800;
+  }
+  .review-meta{
+    font-size:12px;
+    color:#888888;
+  }
+  .review-date{
+    font-size:12px;
+    color:#888888;
+    white-space:nowrap;
+  }
+  .stars{
+    color:#D93A00;
+    font-size:14px;
+    letter-spacing:2px;
+    margin-bottom:8px;
+  }
+  .review-title{
+    font-size:15px;
+    font-weight:800;
+    margin-bottom:8px;
+  }
+  .review-text{
+    font-size:14px;
+    color:#888888;
+    line-height:1.5;
+    margin-bottom:14px;
+  }
+  .review-verified{
+    font-size:12px;
+    color:#888888;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    margin-top:auto;
+  }
+  .review-cat{
+    font-size:16px;
+    font-weight:800;
+    margin-top:4px;
+  }
   .guarantee{
     border:1px solid #e5e5e5;
     border-radius:12px;
@@ -236,6 +314,11 @@
     .steps{
       grid-template-columns:1fr;
     }
+    .reviews{
+      grid-template-columns:1fr;
+      max-width:560px;
+      margin:0 auto;
+    }
     .cta{
       padding:22px 24px;
       font-size:22px;
@@ -296,6 +379,92 @@
     <li class="bonus"><span>BONUS:</span> Strategy Call With Our 8 Figure Marketing Team</li>
   </ul>
 
+
+  <div class="cta-block">
+    <button class="cta">Get Started</button>
+    <p class="cta-note">Delivered in 48 hours</p>
+  </div>
+
+  <p class="sub-under">What Our Clients Say</p>
+  <p class="who-text" style="margin-bottom:20px;">Real businesses. Real results.</p>
+
+  <div class="reviews">
+    <div class="review">
+      <div class="review-head">
+        <div class="avatar">J</div>
+        <div class="review-who">
+          <p class="review-name">Jordan</p>
+          <p class="review-meta">AU &middot; Home Renovations</p>
+        </div>
+        <p class="review-date">Apr 12, 2026</p>
+      </div>
+      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="review-title">+$100k in sales in one month</p>
+      <p class="review-text">Genuinely changed the trajectory of the business. We added $100k in new sales in 30 days for our home reno company — most of it came from leads we previously would've ignored. Setter handled the chase, ads delivered the volume.</p>
+      <p class="review-verified">Verified buyer</p>
+      <p class="review-cat">Home Renovations</p>
+    </div>
+    <div class="review">
+      <div class="review-head">
+        <div class="avatar">B</div>
+        <div class="review-who">
+          <p class="review-name">Brian</p>
+          <p class="review-meta">AU &middot; Financial Planning</p>
+        </div>
+        <p class="review-date">Mar 28, 2026</p>
+      </div>
+      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="review-title">$20–30k/m extra, consistently</p>
+      <p class="review-text">For a financial planning firm, lead quality is everything. The qualifying process they put in place means I only get on calls with people who fit. Now adding $20–30k a month on top of what we were doing before.</p>
+      <p class="review-verified">Verified buyer</p>
+      <p class="review-cat">Financial Planning</p>
+    </div>
+    <div class="review">
+      <div class="review-head">
+        <div class="avatar">P</div>
+        <div class="review-who">
+          <p class="review-name">Puneet</p>
+          <p class="review-meta">AU &middot; Mortgage Brokerage</p>
+        </div>
+        <p class="review-date">Feb 18, 2026</p>
+      </div>
+      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="review-title">$4m in settlements in 30 days</p>
+      <p class="review-text">Brokerage growth is brutal without consistent lead flow. Their setup booked enough qualified appointments to settle $4m in a single month. Pipeline has never been healthier.</p>
+      <p class="review-verified">Verified buyer</p>
+      <p class="review-cat">Mortgage Broker</p>
+    </div>
+    <div class="review">
+      <div class="review-head">
+        <div class="avatar">K</div>
+        <div class="review-who">
+          <p class="review-name">Kaniq</p>
+          <p class="review-meta">AU &middot; Q9 Finance</p>
+        </div>
+        <p class="review-date">Jan 22, 2026</p>
+      </div>
+      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="review-title">2–3 calls a day, every day</p>
+      <p class="review-text">Running Q9 Finance, I get 2–3 calls a day from this set-up. Setter and ads working together means I never have a dry day on the calendar. Best operating system I've found.</p>
+      <p class="review-verified">Verified buyer</p>
+      <p class="review-cat">Finance Broker</p>
+    </div>
+    <div class="review">
+      <div class="review-head">
+        <div class="avatar">S</div>
+        <div class="review-who">
+          <p class="review-name">Sam Abhishek</p>
+          <p class="review-meta">AU &middot; Marketing Agency</p>
+        </div>
+        <p class="review-date">Jan 10, 2026</p>
+      </div>
+      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="review-title">Scaled to $40k/m with this</p>
+      <p class="review-text">Took my agency from inconsistent to $40k/m using these methods. Booked calls, qualified, no wasted hours. Wouldn't run client acquisition any other way now.</p>
+      <p class="review-verified">Verified buyer</p>
+      <p class="review-cat">Agency Owner</p>
+    </div>
+  </div>
 
   <div class="cta-block">
     <button class="cta">Get Started</button>

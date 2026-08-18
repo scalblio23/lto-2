@@ -38,7 +38,8 @@ results grid, FAQ and guarantee all line up on the same edges. The process steps
 three across and the results two across, both collapsing to one column under 768px.
 
 Section order follows a standard VSL offer page: hero and video, CTA, process, CTA,
-who it's for, what you get, CTA, results, CTA, FAQ, guarantee, closing CTA.
+who it's for, what you get, CTA, testimonials, CTA, results, CTA, FAQ, guarantee,
+closing CTA.
 
 ## Editing the page
 
@@ -50,6 +51,8 @@ Content lives in one file, `index.html`:
   section: hero, process, deliverables, results and the closing block. All five are the
   same markup, so edit them together. None have a link/handler yet.
 - **Steps** — the three `.step-box` blocks still contain placeholder copy
+- **Testimonials** — `.review` cards in a three-column grid (`.reviews`), collapsing to
+  one column under 768px. Copy is taken verbatim from scalbl.io.
 - **Results** — `.win` cards in a two-column grid (`.wins`), collapsing to one column under 768px; images use remote URLs, videos are YouTube iframes
 - **FAQ** — `<details>` elements in `.faq`
 - **Guarantee** — `.guarantee` block after the FAQ
@@ -60,4 +63,8 @@ Content lives in one file, `index.html`:
 - Steps 1–3 are placeholder text.
 - The CTA buttons don't do anything yet — wire all five to the booking/calendar link.
 - The hero video is a placeholder.
+- Three testimonials from scalbl.io are missing (Property, Plumbing, Law Firm) — they
+  were cut off in the source screenshot.
+- The Jordan, Brian and Puneet testimonials carry video embeds on scalbl.io; those same
+  videos already appear in the results section here, so they are not duplicated.
 - Result images are hot-linked from an external CDN; move them into `assets/` if you want them self-hosted.
