@@ -228,7 +228,7 @@
   .steps{
     position:relative;
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:1fr;
     gap:16px;
     text-align:left;
   }
@@ -247,7 +247,10 @@
     border:1px solid rgba(255,255,255,0.16);
     border-radius:16px;
     box-shadow:0 10px 34px rgba(0,0,0,0.45),inset 0 1px 0 rgba(255,255,255,0.16);
-    padding:22px;
+    padding:24px;
+    display:flex;
+    align-items:flex-start;
+    gap:20px;
   }
   .step-icon{
     width:44px;
@@ -259,7 +262,7 @@
     background:linear-gradient(180deg,rgba(217,58,0,0.28) 0%,rgba(217,58,0,0.08) 100%);
     border:1px solid rgba(217,58,0,0.4);
     box-shadow:inset 0 1px 0 rgba(255,255,255,0.18);
-    margin-bottom:16px;
+    flex-shrink:0;
   }
   .step-icon svg{
     width:22px;
@@ -271,11 +274,18 @@
     stroke-linejoin:round;
   }
   .step-label{
-    font-size:14px;
+    font-size:13px;
     font-weight:800;
     text-transform:uppercase;
     letter-spacing:0.05em;
-    margin-bottom:6px;
+    color:var(--accent);
+    margin-bottom:4px;
+  }
+  .step-title{
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    margin-bottom:8px;
   }
   .step-text{
     font-size:16px;
@@ -495,9 +505,6 @@
       max-width:560px;
       margin:0 auto;
     }
-    .steps{
-      grid-template-columns:1fr;
-    }
     .pitch-copy{
       padding-left:0;
       padding-right:0;
@@ -592,18 +599,27 @@
   <div class="steps">
     <div class="step-box">
       <div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg></div>
-      <div class="step-label">Step 1</div>
-      <p class="step-text">Craft your perfect funnel offer - designed to pull ONLY qualified bookings.</p>
+      <div class="step-body">
+        <div class="step-label">Step 1</div>
+        <p class="step-title">The Marketing Message</p>
+        <p class="step-text">Craft your perfect funnel offer - designed to pull ONLY qualified bookings.</p>
+      </div>
     </div>
     <div class="step-box">
       <div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M9 21V9"/></svg></div>
-      <div class="step-label">Step 2</div>
-      <p class="step-text">Design your funnel around your brand, style using our high converting formula.</p>
+      <div class="step-body">
+        <div class="step-label">Step 2</div>
+        <p class="step-title">The Funnel Build</p>
+        <p class="step-text">Design your funnel around your brand, style using our high converting formula.</p>
+      </div>
     </div>
     <div class="step-box">
       <div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 16l9 5 9-5"/><path d="M3 12l9 5 9-5"/></svg></div>
-      <div class="step-label">Step 3</div>
-      <p class="step-text">Build the end to end funnel setup - leaving you with a fully built out booking funnel.</p>
+      <div class="step-body">
+        <div class="step-label">Step 3</div>
+        <p class="step-title">The Automations</p>
+        <p class="step-text">Build the end to end funnel setup - leaving you with a fully built out booking funnel.</p>
+      </div>
     </div>
   </div>
 

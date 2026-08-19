@@ -44,8 +44,8 @@ values reskins the whole page; nothing else hardcodes a colour.
 
 Every section shares one content width: the `.wrap` container is 920px, giving
 880px of content once padding is subtracted. Video, process row, deliverables list,
-results grid, FAQ and guarantee all line up on the same edges. The process steps run
-three across and the results two across, both collapsing to one column under 768px.
+results grid, FAQ and guarantee all line up on the same edges. The process steps stack
+vertically; the results run two across, collapsing to one column under 768px.
 
 Section order follows a standard VSL offer page: hero and video, CTA, pitch, process, CTA,
 what you get, CTA, social proof, CTA, FAQ, guarantee, closing CTA.
@@ -64,7 +64,8 @@ Content lives in one file, `index.html`:
 - **CTA** — the `.cta-block` (button + "Delivered in 48 hours" note) repeats after every
   section: hero, process, deliverables, results and the closing block. All five are the
   same markup, so edit them together. None have a link/handler yet.
-- **Steps** — the three `.step-box` blocks, each with an inline SVG in `.step-icon`;
+- **Steps** — the three `.step-box` blocks stacked vertically, each an icon beside a
+  `.step-label` / `.step-title` / `.step-text` body;
   the glass reads against the accent glow painted by `.steps::before`
 - **Social proof** — one `.wins` grid holding two card types: `.review` cards
   (avatar, name, industry, date, rating, headline, quote, media, category) for
