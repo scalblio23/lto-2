@@ -48,7 +48,7 @@ results grid, FAQ and guarantee all line up on the same edges. The process steps
 three across and the results two across, both collapsing to one column under 768px.
 
 Section order follows a standard VSL offer page: hero and video, CTA, pitch, process, CTA,
-who it's for, what you get, CTA, social proof, CTA, FAQ, guarantee, closing CTA.
+what you get, CTA, who it's for, social proof, CTA, FAQ, guarantee, closing CTA.
 
 ## Editing the page
 
