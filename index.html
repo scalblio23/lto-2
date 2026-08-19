@@ -229,6 +229,17 @@
     color:var(--muted);
     margin-top:10px;
   }
+  .cta-guarantee{
+    font-size:14px;
+    font-weight:700;
+    color:var(--success);
+    margin-top:6px;
+  }
+  .cta-guarantee::before{
+    content:"\2713";
+    margin-right:6px;
+    text-shadow:0 0 12px var(--success-glow);
+  }
   .sub-under{
     font-size:clamp(28px,4vw,38px);
     font-weight:800;
@@ -548,6 +559,7 @@
   <div class="cta-block">
     <button class="cta">Get The Funnel - Just $48</button>
     <p class="cta-note">Delivered in 48 hours</p>
+    <p class="cta-guarantee">100% Money Back Guarantee</p>
   </div>
 
   <div class="pitch">
