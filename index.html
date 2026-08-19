@@ -30,6 +30,7 @@
     --danger-glow:rgba(255,59,48,0.55);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
+  [hidden]{display:none !important;}
   html{
     min-height:100%;
     background-color:var(--bg);
@@ -463,6 +464,121 @@
     font-weight:800;
     margin-top:4px;
   }
+  .checkout{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:28px;
+    text-align:left;
+    box-shadow:0 18px 50px rgba(0,0,0,0.5);
+  }
+  .co-input{
+    width:100%;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:10px;
+    color:var(--text);
+    font-family:inherit;
+    font-size:16px;
+    padding:14px 16px;
+    margin-bottom:12px;
+  }
+  .co-input::placeholder{color:var(--muted);}
+  .co-input:focus{outline:2px solid var(--accent);outline-offset:1px;}
+  .co-divider{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin:22px 0 14px;
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--muted);
+  }
+  .co-divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+  .co-head,.co-row{
+    display:grid;
+    grid-template-columns:1fr 60px 90px;
+    gap:10px;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .co-head{
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--muted);
+    font-weight:800;
+  }
+  .co-row span:nth-child(2),.co-head span:nth-child(2){text-align:center;}
+  .co-row span:last-child,.co-head span:last-child{text-align:right;font-weight:700;}
+  .co-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:700;
+    cursor:pointer;
+  }
+  .co-bump{
+    display:block;
+    margin:18px 0 4px;
+    padding:16px 18px;
+    border:2px dashed var(--accent);
+    border-radius:12px;
+    background:rgba(217,58,0,0.08);
+    cursor:pointer;
+  }
+  .co-bump-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:16px;
+    font-weight:800;
+    color:var(--accent);
+  }
+  .co-bump-text{
+    display:block;
+    margin-top:8px;
+    font-size:14px;
+    line-height:1.5;
+    color:var(--muted);
+  }
+  .co-total{
+    border-bottom:none;
+    font-size:18px;
+    font-weight:800;
+  }
+  .co-payment{
+    margin-top:18px;
+    border:1px dashed var(--line);
+    border-radius:12px;
+    padding:28px;
+    text-align:center;
+    font-size:14px;
+    color:var(--muted);
+  }
+  .co-submit{
+    width:100%;
+    margin-top:18px;
+    text-align:center;
+  }
+  .co-secure{
+    margin-top:12px;
+    text-align:center;
+    font-size:13px;
+    color:var(--muted);
+  }
+  @media (max-width:768px){
+    .checkout{padding:20px;}
+    .co-head,.co-row{grid-template-columns:1fr 40px 78px;font-size:15px;}
+  }
   .guarantee{
     background:var(--card);
     border:1px solid var(--line);
@@ -863,13 +979,50 @@
     <p class="guarantee-text">Completely unconditional. If you're not happy or satisfied with the service, you get your money back.</p>
   </div>
 
-  <p class="sub-under">Get Started Today</p>
-  <div class="cta-block">
-    <button class="cta">Get The Funnel - Just $48</button>
-    <p class="cta-note">Delivered in 48 hours</p>
+  <p class="sub-under" id="checkout">Get Started Today</p>
+  <div class="checkout">
+    <input class="co-input" type="text" placeholder="Full name" autocomplete="name">
+    <input class="co-input" type="email" placeholder="Email address" autocomplete="email">
+
+    <div class="co-divider">Payment</div>
+
+    <div class="co-head"><span>Item</span><span>Qty</span><span>Price</span></div>
+    <div class="co-row">
+      <label class="co-item"><input type="radio" name="plan" checked> Automated Booking Funnel</label>
+      <span>1</span>
+      <span>$48.00</span>
+    </div>
+
+    <!-- ORDER BUMP: swap the name, price and description for the real add-on -->
+    <label class="co-bump">
+      <span class="co-bump-head"><input type="checkbox" id="co-bump-toggle"> +$27 — [ADD-ON NAME]</span>
+      <span class="co-bump-text">[One or two lines on what the add-on is and why it pairs with the funnel.]</span>
+    </label>
+
+    <div class="co-divider">Order summary</div>
+    <div class="co-row"><span>Automated Booking Funnel</span><span>1</span><span>$48.00</span></div>
+    <div class="co-row" id="co-bump-line" hidden><span>[Add-on name]</span><span>1</span><span>$27.00</span></div>
+    <div class="co-row co-total"><span>Order Total</span><span></span><span id="co-total">$48.00</span></div>
+
+    <div class="co-payment">Whop checkout embed loads here</div>
+
+    <button class="cta co-submit">Complete Order</button>
+    <p class="co-secure">100% Secure &amp; Safe Payments</p>
   </div>
 
 </div>
 
+<script>
+  (function () {
+    var BASE = 48, BUMP = 27;
+    var toggle = document.getElementById('co-bump-toggle');
+    var line = document.getElementById('co-bump-line');
+    var total = document.getElementById('co-total');
+    toggle.addEventListener('change', function () {
+      line.hidden = !toggle.checked;
+      total.textContent = '$' + (BASE + (toggle.checked ? BUMP : 0)).toFixed(2);
+    });
+  })();
+</script>
 </body>
 </html>

@@ -82,7 +82,10 @@ Content lives in one file, `index.html`:
   videos are YouTube iframes. Testimonial copy is verbatim from scalbl.io.
 - **FAQ** — `<details>` elements in `.faq`
 - **Guarantee** — `.guarantee` block after the FAQ
-- **Closing** — "Get Started Today" heading and the final CTA
+- **Checkout** — `.checkout` at `#checkout`: name and email fields, item row, the
+  `.co-bump` order bump, order summary, a placeholder where the Whop embed goes, and
+  the Complete Order button. The inline script at the end of `<body>` toggles the
+  bump line and total. Visual only — nothing submits yet.
 
 ### Known TODOs
 
@@ -91,7 +94,9 @@ Content lives in one file, `index.html`:
   $5000 is 99% off. Either the percentage or one of the prices needs correcting.
 
 - The CTA buttons don't do anything yet — wire all five to the booking/checkout link.
-- There is no checkout. The page sells at $48 with no way to pay.
+- The checkout is a mock. It needs the Whop plan IDs, the embed swapped in for the
+  placeholder, and the bump's real name, price and description (currently `[ADD-ON
+  NAME]` at a stand-in $27).
 - No Meta Pixel. The head has a TODO where the base code goes; without it Meta can't
   optimise for appointments and you can't retarget.
 - `og:url` and `og:image` are still TODO in the head — sharing the link shows no card.
