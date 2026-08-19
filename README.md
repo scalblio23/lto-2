@@ -49,8 +49,8 @@ Every section shares one content width: the `.wrap` container is 920px, giving
 results grid, FAQ and guarantee all line up on the same edges. The process steps stack
 vertically; the results run two across, collapsing to one column under 768px.
 
-Section order follows a standard VSL offer page: hero and video, CTA, pitch, process, CTA,
-what you get, CTA, social proof, CTA, FAQ, guarantee, closing CTA.
+Section order: hero and video, CTA, warning pill, process, what you get, pitch, stats,
+CTA, social proof, CTA, FAQ, guarantee, closing CTA.
 
 ## Editing the page
 
