@@ -38,10 +38,9 @@ Colours are CSS custom properties on `:root` in `index.html` — `--bg`, `--bg-g
 `--card`, `--surface`, `--text`, `--muted`, `--line`, `--accent`, plus `--danger`
 /`--danger-glow` for the crossed list and `--success`/`--success-glow`/`--glass` for
 the numbered reason cards. The page is dark: a
-muted-white-to-near-black vertical gradient on the root element, sized to 140vh so the
-fade lands within the first screen or two on any device rather than stretching over the
-whole document. It sits on `html` rather than `body` with `background-attachment:fixed`,
-which iOS Safari ignores. White text, muted grey for secondary copy, cards on their own
+muted-white-to-near-black gradient running left to right on the root element. It sits on
+`html` rather than `body` with `background-attachment:fixed`, which iOS Safari ignores;
+being horizontal, it needs no vertical sizing and renders the same at any page height. White text, muted grey for secondary copy, cards on their own
 subtle dark gradient. Editing those eight
 values reskins the whole page; nothing else hardcodes a colour.
 
@@ -60,10 +59,9 @@ CTA, social proof, CTA, FAQ, guarantee, closing CTA.
 Content lives in one file, `index.html`:
 
 - **Eyebrow / headline** — `.eyebrow` qualifier above the `<h1>`, top of `.wrap`
-- **Video** — the Wistia player (`media-id="9snpqwxxn9"`) inside `.video-embed`; its two
-  scripts sit at the top of `<head>`
+- **Video** — the Wistia player (`media-id="9snpqwxxn9"`) inside `.video-embed`, which
+  carries the accent glow; its two scripts sit at the top of `<head>`
 - **Stats** — `.stats` (800+, $7m+, 8 years), between the pitch and the process section
-- **Sticky CTA** — `.sticky-cta` at the end of `<body>`, shown only under 768px
 - **Pitch** — the `.pitch` block under the hero CTA: warning pill, hook heading,
   the "tried everything" `.pain-list`, the three-reason `.why-list`, and the `$48`
   price lines
@@ -87,8 +85,7 @@ Content lives in one file, `index.html`:
 - The pitch block says "95% OFF our usual price of a $5000 funnel build", but $48 off
   $5000 is 99% off. Either the percentage or one of the prices needs correcting.
 
-- The CTA buttons don't do anything yet — wire all six (five inline plus the sticky
-  mobile bar) to the booking/checkout link.
+- The CTA buttons don't do anything yet — wire all five to the booking/checkout link.
 - There is no checkout. The page sells at $48 with no way to pay.
 - No Meta Pixel. The head has a TODO where the base code goes; without it Meta can't
   optimise for appointments and you can't retarget.
