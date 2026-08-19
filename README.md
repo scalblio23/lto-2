@@ -96,9 +96,10 @@ Content lives in one file, `index.html`:
   $5000 is 99% off. Either the percentage or one of the prices needs correcting.
 
 - The CTA buttons don't do anything yet — wire all five to the booking/checkout link.
-- The checkout is a mock. It needs the Whop plan IDs, the embed swapped in for the
-  placeholder, and the bump's real name, price and description (currently `[ADD-ON
-  NAME]` at a stand-in $27).
+- The checkout is a mock. It needs the Whop plan IDs (four combinations now:
+  standard/premium with/without bump), the embed swapped in for the placeholder, and
+  the bump's real name, price and description (currently `[ADD-ON NAME]` at a
+  stand-in $27).
 - No Meta Pixel. The head has a TODO where the base code goes; without it Meta can't
   optimise for appointments and you can't retarget.
 - `og:url` and `og:image` are still TODO in the head — sharing the link shows no card.

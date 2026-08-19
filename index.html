@@ -1035,9 +1035,14 @@
 
     <div class="co-head"><span>Item</span><span>Quantity</span><span>Price</span></div>
     <div class="co-row">
-      <label class="co-item"><input type="radio" name="plan" checked> Automated Booking Funnel</label>
+      <label class="co-item"><input type="radio" name="plan" value="48" data-name="Automated Booking Funnel (Standard)" checked> Automated Booking Funnel (Standard) &mdash; 1-page funnel with survey opt-in &amp; calendar</label>
       <span>1</span>
       <span>$48.00</span>
+    </div>
+    <div class="co-row">
+      <label class="co-item"><input type="radio" name="plan" value="149" data-name="Automated Booking Funnel (Premium)"> Automated Booking Funnel (Premium) &mdash; 3-step funnel: Sales Page, Booking Page, Thank You Page</label>
+      <span>1</span>
+      <span>$149.00</span>
     </div>
 
     <!-- ORDER BUMP: swap the name, price and description for the real add-on -->
@@ -1049,7 +1054,7 @@
     <div class="co-divider co-divider-c">Order summary</div>
 
     <div class="co-head"><span>Item</span><span>Quantity</span><span>Amount</span></div>
-    <div class="co-row"><span>Automated Booking Funnel</span><span>1</span><span>$48.00</span></div>
+    <div class="co-row"><span id="co-plan-name">Automated Booking Funnel (Standard)</span><span>1</span><span id="co-plan-price">$48.00</span></div>
     <div class="co-row" id="co-bump-line" hidden><span>[Add-on name]</span><span>1</span><span>$27.00</span></div>
     <div class="co-row co-total"><span>Order Total</span><span></span><span id="co-total">$48.00</span></div>
 
@@ -1063,14 +1068,23 @@
 
 <script>
   (function () {
-    var BASE = 48, BUMP = 27;
+    var BUMP = 27;
     var toggle = document.getElementById('co-bump-toggle');
     var line = document.getElementById('co-bump-line');
     var total = document.getElementById('co-total');
-    toggle.addEventListener('change', function () {
+    var planName = document.getElementById('co-plan-name');
+    var planPrice = document.getElementById('co-plan-price');
+    var plans = document.querySelectorAll('input[name="plan"]');
+    function update() {
+      var plan = document.querySelector('input[name="plan"]:checked');
+      var base = parseFloat(plan.value);
+      planName.textContent = plan.dataset.name;
+      planPrice.textContent = '$' + base.toFixed(2);
       line.hidden = !toggle.checked;
-      total.textContent = '$' + (BASE + (toggle.checked ? BUMP : 0)).toFixed(2);
-    });
+      total.textContent = '$' + (base + (toggle.checked ? BUMP : 0)).toFixed(2);
+    }
+    toggle.addEventListener('change', update);
+    plans.forEach(function (r) { r.addEventListener('change', update); });
   })();
 </script>
 </body>
