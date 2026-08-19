@@ -37,9 +37,12 @@ For GitHub Pages: Settings → Pages → deploy from branch, root (`/`) of the c
 Colours are CSS custom properties on `:root` in `index.html` — `--bg`, `--bg-grad`,
 `--card`, `--surface`, `--text`, `--muted`, `--line`, `--accent`, plus `--danger`
 /`--danger-glow` for the crossed list and `--success`/`--success-glow`/`--glass` for
-the numbered reason cards. The page is dark:
-a black-to-charcoal vertical gradient behind the body, white text, muted grey for
-secondary copy, and cards on their own subtle dark gradient. Editing those eight
+the numbered reason cards. The page is dark: a
+muted-white-to-near-black vertical gradient on the root element, sized to 140vh so the
+fade lands within the first screen or two on any device rather than stretching over the
+whole document. It sits on `html` rather than `body` with `background-attachment:fixed`,
+which iOS Safari ignores. White text, muted grey for secondary copy, cards on their own
+subtle dark gradient. Editing those eight
 values reskins the whole page; nothing else hardcodes a colour.
 
 ## Layout
