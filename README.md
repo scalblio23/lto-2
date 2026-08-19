@@ -82,6 +82,9 @@ Content lives in one file, `index.html`:
   videos are YouTube iframes. Testimonial copy is verbatim from scalbl.io.
 - **FAQ** — `<details>` elements in `.faq`
 - **Guarantee** — `.guarantee` block after the FAQ
+- **Pricing table** — `.compare`, the Pro V/S Premium comparison above the checkout:
+  Pro $48 (1-page funnel) vs Premium $149 (3-step funnel plus sales page, email/SMS
+  reminders, ad tracking wiring), Premium column tinted with a Popular badge.
 - **Checkout** — `.checkout` at `#checkout`: a white order-form card, deliberately
   light against the dark page, matching the usual order-form conventions — blue
   prices, yellow dashed order bump, green Complete Order button. Its palette lives in

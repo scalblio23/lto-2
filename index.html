@@ -464,6 +464,90 @@
     font-weight:800;
     margin-top:4px;
   }
+  .compare{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    overflow:hidden;
+    text-align:left;
+    margin-bottom:28px;
+  }
+  .cmp-row{
+    display:grid;
+    grid-template-columns:1fr 130px 150px;
+    align-items:center;
+    border-bottom:1px solid var(--line);
+  }
+  .cmp-row:last-child{border-bottom:none;}
+  .cmp-row > span{
+    padding:16px 20px;
+    font-size:16px;
+  }
+  .cmp-row > span:nth-child(2),
+  .cmp-row > span:nth-child(3){
+    text-align:center;
+    font-weight:700;
+  }
+  .cmp-row > span:nth-child(3){
+    background:rgba(217,58,0,0.10);
+  }
+  .cmp-head > span{padding:22px 20px;}
+  .cmp-kicker{
+    display:block;
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--accent);
+    margin-bottom:6px;
+  }
+  .cmp-title{
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:-0.01em;
+  }
+  .cmp-plan{
+    font-size:18px;
+    font-weight:800;
+  }
+  .cmp-sub{
+    display:block;
+    font-size:13px;
+    font-weight:400;
+    color:var(--muted);
+    margin-top:2px;
+  }
+  .cmp-price{
+    display:block;
+    font-size:30px;
+    font-weight:800;
+    margin-top:8px;
+  }
+  .cmp-price-hl{color:var(--accent);}
+  .cmp-badge{
+    display:inline-block;
+    background:var(--accent);
+    color:var(--text);
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    border-radius:999px;
+    padding:4px 10px;
+    margin-bottom:8px;
+  }
+  .cmp-yes{color:var(--success);}
+  .cmp-no{color:var(--muted);}
+  .cmp-val{font-size:14px;line-height:1.4;}
+  @media (max-width:768px){
+    .cmp-row{grid-template-columns:1fr 70px 84px;}
+    .cmp-row > span{padding:12px 10px;font-size:14px;}
+    .cmp-head > span{padding:16px 10px;}
+    .cmp-title{font-size:18px;}
+    .cmp-price{font-size:22px;}
+    .cmp-plan{font-size:15px;}
+    .cmp-sub{display:none;}
+  }
   .checkout{
     --co-ink:#1a1a1a;
     --co-line:#e2e2e2;
@@ -1027,6 +1111,24 @@
   </div>
 
   <p class="sub-under" id="checkout">Get Started Today</p>
+  <div class="compare">
+    <div class="cmp-row cmp-head">
+      <span><span class="cmp-kicker">Choose your package</span><span class="cmp-title">Pro V/S Premium</span></span>
+      <span><span class="cmp-plan">Pro<span class="cmp-sub">1-Page Funnel</span></span><span class="cmp-price">$48</span></span>
+      <span><span class="cmp-badge">Popular</span><span class="cmp-plan">Premium<span class="cmp-sub">3-Step Funnel</span></span><span class="cmp-price cmp-price-hl">$149</span></span>
+    </div>
+    <div class="cmp-row"><span>Funnel structure</span><span><span class="cmp-val">1 page<br>survey opt-in + calendar</span></span><span><span class="cmp-val">3 pages<br>Sales &middot; Booking &middot; Thank You</span></span></div>
+    <div class="cmp-row"><span>Built on our high converting template</span><span><span class="cmp-yes">&#10003;</span></span><span><span class="cmp-yes">&#10003;</span></span></div>
+    <div class="cmp-row"><span>Landing page copy</span><span><span class="cmp-yes">&#10003;</span></span><span><span class="cmp-yes">&#10003;</span></span></div>
+    <div class="cmp-row"><span>Survey opt-in &amp; lead qualification</span><span><span class="cmp-yes">&#10003;</span></span><span><span class="cmp-yes">&#10003;</span></span></div>
+    <div class="cmp-row"><span>Calendar &amp; booking integration</span><span><span class="cmp-yes">&#10003;</span></span><span><span class="cmp-yes">&#10003;</span></span></div>
+    <div class="cmp-row"><span>Backend CRM automation (Google Sheets)</span><span><span class="cmp-yes">&#10003;</span></span><span><span class="cmp-yes">&#10003;</span></span></div>
+    <div class="cmp-row"><span>60 days free hosting</span><span><span class="cmp-yes">&#10003;</span></span><span><span class="cmp-yes">&#10003;</span></span></div>
+    <div class="cmp-row"><span>Dedicated long-form sales page</span><span><span class="cmp-no">&mdash;</span></span><span><span class="cmp-yes">&#10003;</span></span></div>
+    <div class="cmp-row"><span>Email &amp; SMS booking reminders</span><span><span class="cmp-no">&mdash;</span></span><span><span class="cmp-yes">&#10003;</span></span></div>
+    <div class="cmp-row"><span>Advertising automation &amp; tracking wiring</span><span><span class="cmp-no">&mdash;</span></span><span><span class="cmp-yes">&#10003;</span></span></div>
+  </div>
+
   <div class="checkout">
     <input class="co-input" type="text" placeholder="Full name" autocomplete="name">
     <input class="co-input" type="email" placeholder="Email address" autocomplete="email">
@@ -1035,12 +1137,12 @@
 
     <div class="co-head"><span>Item</span><span>Quantity</span><span>Price</span></div>
     <div class="co-row">
-      <label class="co-item"><input type="radio" name="plan" value="48" data-name="Automated Booking Funnel (Standard)" checked> Automated Booking Funnel (Standard) &mdash; 1-page funnel with survey opt-in &amp; calendar</label>
+      <label class="co-item"><input type="radio" name="plan" value="48" data-name="Booking Funnel &mdash; Pro" checked> Pro &mdash; 1-Page Funnel (survey opt-in &amp; calendar)</label>
       <span>1</span>
       <span>$48.00</span>
     </div>
     <div class="co-row">
-      <label class="co-item"><input type="radio" name="plan" value="149" data-name="Automated Booking Funnel (Premium)"> Automated Booking Funnel (Premium) &mdash; 3-step funnel: Sales Page, Booking Page, Thank You Page</label>
+      <label class="co-item"><input type="radio" name="plan" value="149" data-name="Booking Funnel &mdash; Premium"> Premium &mdash; 3-Step Funnel (Sales, Booking, Thank You)</label>
       <span>1</span>
       <span>$149.00</span>
     </div>
@@ -1054,7 +1156,7 @@
     <div class="co-divider co-divider-c">Order summary</div>
 
     <div class="co-head"><span>Item</span><span>Quantity</span><span>Amount</span></div>
-    <div class="co-row"><span id="co-plan-name">Automated Booking Funnel (Standard)</span><span>1</span><span id="co-plan-price">$48.00</span></div>
+    <div class="co-row"><span id="co-plan-name">Booking Funnel &mdash; Pro</span><span>1</span><span id="co-plan-price">$48.00</span></div>
     <div class="co-row" id="co-bump-line" hidden><span>[Add-on name]</span><span>1</span><span>$27.00</span></div>
     <div class="co-row co-total"><span>Order Total</span><span></span><span id="co-total">$48.00</span></div>
 
