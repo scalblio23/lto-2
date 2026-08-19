@@ -71,9 +71,10 @@ Content lives in one file, `index.html`:
 - **Steps** — the three `.step-box` blocks stacked vertically, each an icon beside a
   `.step-label` / `.step-title` / `.step-text` body;
   the glass reads against the accent glow painted by `.steps::before`
-- **Mockups** — `.mockups`, `assets/mockup-funnels.png` after the deliverables list:
-  one transparent PNG showing four funnels on desktop and mobile. The CSS uses
-  `drop-shadow`, which follows the alpha edge rather than boxing the image.
+- **Mockups** — `.mockups`, a two-by-two grid after the deliverables list: four niche
+  examples, each a `.mockup-label` above a transparent PNG. One column under 768px.
+  The CSS uses `drop-shadow`, which follows the alpha edge rather than boxing the
+  image. Source files are cropped to their alpha bounds and capped at 1100px wide.
 - **Social proof** — one `.wins` grid holding two card types: `.review` cards
   (avatar, name, industry, date, rating, headline, quote, media, category) for
   clients with a written testimonial, and `.win` cards (company, headline, image)

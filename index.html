@@ -186,12 +186,23 @@
     margin-top:8px;
   }
   .mockups{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:32px 24px;
     margin-top:36px;
+  }
+  .mockup-label{
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--muted);
+    margin-bottom:12px;
   }
   .mockups img{
     width:100%;
     display:block;
-    filter:drop-shadow(0 18px 40px rgba(0,0,0,0.55));
+    filter:drop-shadow(0 16px 34px rgba(0,0,0,0.55));
   }
   .stats{
     display:grid;
@@ -519,6 +530,9 @@
       grid-template-columns:1fr;
       gap:28px;
     }
+    .mockups{
+      grid-template-columns:1fr;
+    }
   }
 </style>
 </head>
@@ -582,7 +596,22 @@
   </ul>
 
   <div class="mockups">
-    <img src="assets/mockup-funnels.png" alt="Four booking funnels we have built, each shown on desktop and mobile" loading="lazy">
+    <div>
+      <p class="mockup-label">Mortgage Broker Example</p>
+      <img src="assets/mockup-mortgage.png" alt="Booking funnel built for a mortgage broker" loading="lazy">
+    </div>
+    <div>
+      <p class="mockup-label">Kitchen Renovation Example</p>
+      <img src="assets/mockup-kitchen.png" alt="Booking funnel built for a kitchen renovation company" loading="lazy">
+    </div>
+    <div>
+      <p class="mockup-label">Water Quality Example</p>
+      <img src="assets/mockup-water.png" alt="Booking funnel built for a water quality business" loading="lazy">
+    </div>
+    <div>
+      <p class="mockup-label">Marketing Agency Example</p>
+      <img src="assets/mockup-agency.png" alt="Booking funnel built for a marketing agency" loading="lazy">
+    </div>
   </div>
 
   <div class="pitch">
