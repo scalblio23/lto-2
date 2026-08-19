@@ -2,7 +2,9 @@
 
 Static landing page for the "Automated Booking Funnel in 48 Hours — Or You Don't Pay" offer.
 
-Single self-contained HTML file: all CSS is inline in `<style>`, no build step, no dependencies.
+Single HTML file: all CSS is inline in `<style>`, no build step. The only external
+dependencies are the Wistia player scripts for the hero video and the remotely hosted
+result images and testimonial videos.
 
 ## Structure
 
@@ -55,7 +57,8 @@ what you get, CTA, social proof, CTA, FAQ, guarantee, closing CTA.
 Content lives in one file, `index.html`:
 
 - **Headline** — top of `.wrap`
-- **Video** — replace the whole `<div class="video-placeholder">…</div>` block with your embed code
+- **Video** — the Wistia player (`media-id="9snpqwxxn9"`) inside `.video-embed`; its two
+  scripts sit at the top of `<head>`
 - **Stats** — `.stats` (800+, $7m+, 8 years), between the pitch and the process section
 - **Sticky CTA** — `.sticky-cta` at the end of `<body>`, shown only under 768px
 - **Pitch** — the `.pitch` block under the hero CTA: warning pill, hook heading,
@@ -87,7 +90,6 @@ Content lives in one file, `index.html`:
 - No Meta Pixel. The head has a TODO where the base code goes; without it Meta can't
   optimise for appointments and you can't retarget.
 - `og:url` and `og:image` are still TODO in the head — sharing the link shows no card.
-- The hero video is a placeholder.
 - Jordan appears twice: once as the home renovations testimonial, once as the roofing
   company result. Confirm these are different clients, or drop one.
 - Pascal (plumbing) and Wilco Relining (pipe relining) may be the same client under a

@@ -11,6 +11,8 @@
 <!-- TODO: add og:url (live domain) and og:image (1200x630 share image) before launch -->
 <!-- TODO: Meta Pixel — paste the base code here and swap PIXEL_ID, then fire a
      Lead or Purchase event on the CTA so Meta can optimise for appointments. -->
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/9snpqwxxn9.js" async type="module"></script>
 <style>
   :root{
     --bg:#000000;
@@ -51,38 +53,20 @@
   }
   h1 em{font-style:italic;}
 
-  /* Video placeholder — swap this div for your embed code */
-  .video-placeholder{
+  /* VSL — Wistia player */
+  .video-embed{
     position:relative;
     width:100%;
-    aspect-ratio:16/9;
-    background:var(--surface);
     border:1px solid var(--line);
     border-radius:12px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
+    overflow:hidden;
+    background:var(--surface);
   }
-  .play{
-    width:64px;height:64px;
-    border-radius:50%;
-    border:2px solid var(--text);
-    display:flex;align-items:center;justify-content:center;
-  }
-  .play::after{
-    content:"";
-    border-style:solid;
-    border-width:12px 0 12px 20px;
-    border-color:transparent transparent transparent var(--text);
-    margin-left:4px;
-  }
-  .video-placeholder span{
-    font-size:13px;
-    color:var(--muted);
-    text-transform:uppercase;
-    letter-spacing:0.05em;
+  wistia-player[media-id='9snpqwxxn9']:not(:defined){
+    background:center / contain no-repeat url('https://fast.wistia.com/embed/medias/9snpqwxxn9/swatch');
+    display:block;
+    filter:blur(5px);
+    padding-top:56.25%;
   }
 
   .cta{
@@ -541,10 +525,8 @@
 <div class="wrap">
   <h1>We'll Build You an <em>Automated Booking Funnel</em> for Your Service Business in 48 Hours — or You Don't Pay</h1>
 
-  <!-- VIDEO: replace this whole div with your embed code -->
-  <div class="video-placeholder">
-    <div class="play"></div>
-    <span>Video goes here</span>
+  <div class="video-embed">
+    <wistia-player media-id="9snpqwxxn9" aspect="1.7777777777777777"></wistia-player>
   </div>
 
   <div class="cta-block">
