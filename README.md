@@ -86,8 +86,9 @@ Content lives in one file, `index.html`:
 
 ### Known TODOs
 
-- `assets/mockup-home-loan.png` and `assets/mockup-water-quality.png` are referenced by
-  the page but not yet committed, so those two images 404 until they are added.
+- The two mockups in `assets/` still have their studio backdrop baked in, so they show
+  as light rectangles on the dark page. Replace them with transparent PNGs under the
+  same filenames.
 
 - The pitch block says "95% OFF our usual price of a $5000 funnel build", but $48 off
   $5000 is 99% off. Either the percentage or one of the prices needs correcting.
