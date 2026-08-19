@@ -71,6 +71,10 @@ Content lives in one file, `index.html`:
 - **Steps** — the three `.step-box` blocks stacked vertically, each an icon beside a
   `.step-label` / `.step-title` / `.step-text` body;
   the glass reads against the accent glow painted by `.steps::before`
+- **Mockups** — `.mockups`, two example funnel images after the deliverables list.
+  The files belong in `assets/` as `mockup-home-loan.png` and
+  `mockup-water-quality.png`, exported as PNGs with a transparent background; the
+  CSS uses `drop-shadow`, which follows the alpha edge rather than a box.
 - **Social proof** — one `.wins` grid holding two card types: `.review` cards
   (avatar, name, industry, date, rating, headline, quote, media, category) for
   clients with a written testimonial, and `.win` cards (company, headline, image)
@@ -81,6 +85,9 @@ Content lives in one file, `index.html`:
 - **Closing** — "Get Started Today" heading and the final CTA
 
 ### Known TODOs
+
+- `assets/mockup-home-loan.png` and `assets/mockup-water-quality.png` are referenced by
+  the page but not yet committed, so those two images 404 until they are added.
 
 - The pitch block says "95% OFF our usual price of a $5000 funnel build", but $48 off
   $5000 is 99% off. Either the percentage or one of the prices needs correcting.

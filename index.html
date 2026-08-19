@@ -185,6 +185,18 @@
     color:var(--muted);
     margin-top:8px;
   }
+  .mockups{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+    align-items:center;
+    margin-top:36px;
+  }
+  .mockups img{
+    width:100%;
+    display:block;
+    filter:drop-shadow(0 26px 55px rgba(0,0,0,0.6));
+  }
   .stats{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -511,6 +523,9 @@
       grid-template-columns:1fr;
       gap:28px;
     }
+    .mockups{
+      grid-template-columns:1fr;
+    }
   }
 </style>
 </head>
@@ -572,6 +587,11 @@
     <li class="bonus"><span>BONUS:</span> Free AI Offer Generator</li>
     <li class="bonus"><span>BONUS:</span> Strategy Call With Our 8 Figure Marketing Team</li>
   </ul>
+
+  <div class="mockups">
+    <img src="assets/mockup-home-loan.png" alt="Home loan comparison booking funnel built for a finance client" loading="lazy">
+    <img src="assets/mockup-water-quality.png" alt="Water quality quiz booking funnel built for a Perth trades client" loading="lazy">
+  </div>
 
   <div class="pitch">
     <p class="sub-under">Get Bookings Not Just Leads</p>
