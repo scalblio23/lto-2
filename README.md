@@ -56,7 +56,7 @@ CTA, social proof, CTA, FAQ, guarantee, closing CTA.
 
 Content lives in one file, `index.html`:
 
-- **Headline** — top of `.wrap`
+- **Eyebrow / headline** — `.eyebrow` qualifier above the `<h1>`, top of `.wrap`
 - **Video** — the Wistia player (`media-id="9snpqwxxn9"`) inside `.video-embed`; its two
   scripts sit at the top of `<head>`
 - **Stats** — `.stats` (800+, $7m+, 8 years), between the pitch and the process section
