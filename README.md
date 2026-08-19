@@ -3,8 +3,8 @@
 Static landing page for the "Automated Booking Funnel in 48 Hours — Or You Don't Pay" offer.
 
 Single HTML file: all CSS is inline in `<style>`, no build step. The only external
-dependencies are the Wistia player scripts for the hero video and the remotely hosted
-result images and testimonial videos.
+dependencies are the Wistia player scripts for the hero video, the Whop checkout
+loader, and the remotely hosted result images and testimonial videos.
 
 ## Structure
 
@@ -89,8 +89,8 @@ Content lives in one file, `index.html`:
   light against the dark page, matching the usual order-form conventions — blue
   prices, yellow dashed order bump, green Complete Order button. Its palette lives in
   `--co-*` variables scoped to `.checkout`, separate from the page tokens. The inline
-  script at the end of `<body>` toggles the bump line and total. Visual only —
-  nothing submits yet.
+  script at the end of `<body>` toggles the bump line, the total, and which of the
+  four pre-rendered Whop plan embeds is visible.
 
 ### Known TODOs
 
@@ -99,10 +99,12 @@ Content lives in one file, `index.html`:
   $5000 is 99% off. Either the percentage or one of the prices needs correcting.
 
 - The CTA buttons don't do anything yet — wire all five to the booking/checkout link.
-- The checkout is a mock. It needs the Whop plan IDs (four combinations now:
-  standard/premium with/without bump), the embed swapped in for the placeholder, and
-  the bump's real name, price and description (currently `[ADD-ON NAME]` at a
-  stand-in $27).
+- The checkout is wired to four hidden one-time Whop plans (Pro $48, Pro+add-on $75,
+  Premium $149, Premium+add-on $176); the tier radios and bump checkbox toggle which
+  plan's embed is visible. Still open: the bump's real name and description
+  (currently `[ADD-ON NAME]`), the plans' post-purchase redirect URLs (need the live
+  domain), Apple Pay domain verification in Whop, and a live payment test — the
+  embed only renders where js.whop.com is reachable.
 - No Meta Pixel. The head has a TODO where the base code goes; without it Meta can't
   optimise for appointments and you can't retarget.
 - `og:url` and `og:image` are still TODO in the head — sharing the link shows no card.
