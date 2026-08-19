@@ -3,8 +3,10 @@
 Static landing page for the "Automated Booking Funnel in 48 Hours — Or You Don't Pay" offer.
 
 Single HTML file: all CSS is inline in `<style>`, no build step. The only external
-dependencies are the Wistia player scripts for the hero video, the Whop checkout
-loader, and the remotely hosted result images and testimonial videos.
+dependencies are the Wistia player scripts for the hero video, Stripe.js, and the
+remotely hosted result images and testimonial videos. The checkout needs the two
+serverless functions in `api/`, so the site deploys to Vercel (or any host that runs
+them), not to a purely static host.
 
 ## Structure
 
@@ -16,6 +18,26 @@ loader, and the remotely hosted result images and testimonial videos.
 ├── .gitignore
 └── README.md
 ```
+
+## Payments (Stripe)
+
+The funnel is: `index.html` (checkout, four price combinations) → `upsell.html`
+(one-click $397 DFY Ad Launch, charges the saved card off-session) → `thanks.html`
+(confirmation; Meta Purchase pixel goes here).
+
+Server side, `api/create-payment-intent.js` computes the amount from the chosen
+plan+bump (never trusting the client), creates the Customer, and saves the card with
+`setup_future_usage: off_session`. `api/charge-upsell.js` verifies the original
+payment succeeded, charges $397 to the saved card exactly once (guarded by customer
+metadata), and falls back to on-session 3DS when the bank demands it.
+
+### Go-live checklist
+
+1. Deploy to Vercel: import this repo, framework "Other", no build step.
+2. In Vercel → Settings → Environment Variables, add `STRIPE_SECRET_KEY` (sk_live_…).
+3. Replace `pk_live_REPLACE_ME` in `index.html` and `upsell.html` with the
+   publishable key.
+4. Make one real test purchase and refund it.
 
 ## Preview locally
 
@@ -89,8 +111,8 @@ Content lives in one file, `index.html`:
   light against the dark page, matching the usual order-form conventions — blue
   prices, yellow dashed order bump, green Complete Order button. Its palette lives in
   `--co-*` variables scoped to `.checkout`, separate from the page tokens. The inline
-  script at the end of `<body>` toggles the bump line, the total, and which of the
-  four pre-rendered Whop plan embeds is visible.
+  script at the end of `<body>` drives the tier/bump totals and the Stripe deferred
+  Payment Element (amount updates live, card saved for the upsell).
 
 ### Known TODOs
 
@@ -99,12 +121,11 @@ Content lives in one file, `index.html`:
   $5000 is 99% off. Either the percentage or one of the prices needs correcting.
 
 - The CTA buttons don't do anything yet — wire all five to the booking/checkout link.
-- The checkout is wired to four hidden one-time Whop plans (Pro $48, Pro+add-on $75,
-  Premium $149, Premium+add-on $176); the tier radios and bump checkbox toggle which
-  plan's embed is visible. Still open: the bump's real name and description
-  (currently `[ADD-ON NAME]`), the plans' post-purchase redirect URLs (need the live
-  domain), Apple Pay domain verification in Whop, and a live payment test — the
-  embed only renders where js.whop.com is reachable.
+- The checkout runs on Stripe with a one-click post-purchase upsell. Still open: the
+  publishable key (`pk_live_REPLACE_ME` in index.html and upsell.html), the
+  `STRIPE_SECRET_KEY` env var on the host, the bump's real name/description
+  (currently `[ADD-ON NAME]`), and a live test purchase. The four Whop plans are no
+  longer used.
 - No Meta Pixel. The head has a TODO where the base code goes; without it Meta can't
   optimise for appointments and you can't retarget.
 - `og:url` and `og:image` are still TODO in the head — sharing the link shows no card.

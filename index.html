@@ -11,7 +11,7 @@
 <!-- TODO: add og:url (live domain) and og:image (1200x630 share image) before launch -->
 <!-- TODO: Meta Pixel — paste the base code here and swap PIXEL_ID, then fire a
      Lead or Purchase event on the CTA so Meta can optimise for appointments. -->
-<script async defer src="https://js.whop.com/static/checkout/loader.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
 <script src="https://fast.wistia.com/player.js" async></script>
 <script src="https://fast.wistia.com/embed/9snpqwxxn9.js" async type="module"></script>
 <style>
@@ -548,6 +548,7 @@
     .cmp-price{font-size:22px;}
     .cmp-plan{font-size:15px;}
     .cmp-sub{display:none;}
+    .co-submit{font-size:20px;padding:16px;}
   }
   .checkout{
     --co-ink:#1a1a1a;
@@ -561,6 +562,43 @@
     padding:30px 32px 26px;
     text-align:left;
     box-shadow:0 24px 60px rgba(0,0,0,0.55);
+  }
+  .co-input{
+    width:100%;
+    background:#ffffff;
+    border:1px solid var(--co-line);
+    border-radius:10px;
+    color:var(--co-ink);
+    font-family:inherit;
+    font-size:17px;
+    padding:15px 16px;
+    margin-bottom:14px;
+  }
+  .co-input::placeholder{color:#9a9a9a;}
+  .co-input:focus{outline:2px solid var(--co-blue);outline-offset:1px;}
+  .co-submit{
+    width:100%;
+    margin-top:18px;
+    background:var(--co-green);
+    color:#ffffff;
+    border:none;
+    border-radius:8px;
+    padding:20px 24px;
+    font-family:inherit;
+    font-size:26px;
+    font-weight:800;
+    text-align:center;
+    cursor:pointer;
+    transition:opacity .15s ease;
+  }
+  .co-submit:hover{opacity:.9;}
+  .co-submit:disabled{opacity:.5;cursor:wait;}
+  .co-error{
+    display:none;
+    color:#d93a00;
+    font-size:14px;
+    margin-top:10px;
+    text-align:center;
   }
   .co-divider{
     display:flex;
@@ -1096,6 +1134,9 @@
 
   <p class="sub-under" id="checkout">Get Started Today</p>
   <div class="checkout">
+    <input class="co-input" type="text" id="co-name" placeholder="Full name" autocomplete="name">
+    <input class="co-input" type="email" id="co-email" placeholder="Email address" autocomplete="email">
+
     <div class="co-divider">Payment</div>
 
     <div class="co-head"><span>Item</span><span>Quantity</span><span>Price</span></div>
@@ -1123,19 +1164,18 @@
     <div class="co-row" id="co-bump-line" hidden><span>[Add-on name]</span><span>1</span><span>$27.00</span></div>
     <div class="co-row co-total"><span>Order Total</span><span></span><span id="co-total">$48.00</span></div>
 
-    <div class="co-payment" id="co-whop">
-      <div class="co-plan-embed" data-plan-total="48"><div data-whop-checkout-plan-id="plan_pNpn8bmTjoALN" data-whop-checkout-theme="light"></div></div>
-      <div class="co-plan-embed" data-plan-total="75" hidden><div data-whop-checkout-plan-id="plan_YPONL7wlasaqB" data-whop-checkout-theme="light"></div></div>
-      <div class="co-plan-embed" data-plan-total="149" hidden><div data-whop-checkout-plan-id="plan_Zky5LVoaVdsv8" data-whop-checkout-theme="light"></div></div>
-      <div class="co-plan-embed" data-plan-total="176" hidden><div data-whop-checkout-plan-id="plan_szV51jTvwfzX9" data-whop-checkout-theme="light"></div></div>
-    </div>
-    <p class="co-secure">* 100% Secure &amp; Safe Payments *</p>
+    <div class="co-payment"><div id="payment-element"></div></div>
+
+    <button class="co-submit" id="co-pay">&#128722; Complete Order</button>
+    <p class="co-error" id="co-error"></p>
+    <p class="co-secure">* 100% Secure &amp; Safe Payments &mdash; powered by Stripe *</p>
   </div>
 
 </div>
 
 <script>
   (function () {
+    var PK = 'pk_live_REPLACE_ME';
     var BUMP = 27;
     var toggle = document.getElementById('co-bump-toggle');
     var line = document.getElementById('co-bump-line');
@@ -1143,20 +1183,85 @@
     var planName = document.getElementById('co-plan-name');
     var planPrice = document.getElementById('co-plan-price');
     var plans = document.querySelectorAll('input[name="plan"]');
+    var payBtn = document.getElementById('co-pay');
+    var errEl = document.getElementById('co-error');
+
+    var stripe = null, elements = null;
+    if (window.Stripe && PK.indexOf('REPLACE_ME') === -1) {
+      stripe = Stripe(PK);
+      elements = stripe.elements({
+        mode: 'payment',
+        amount: 4800,
+        currency: 'usd',
+        setupFutureUsage: 'off_session',
+        appearance: { theme: 'stripe' }
+      });
+      elements.create('payment').mount('#payment-element');
+    } else {
+      document.getElementById('payment-element').innerHTML =
+        '<p style="text-align:center;color:#8a8a8a;font-size:14px;padding:20px;border:1px dashed #e2e2e2;border-radius:12px;">Payment form loads here once the Stripe publishable key is set.</p>';
+    }
+
+    function currentSum() {
+      var plan = document.querySelector('input[name="plan"]:checked');
+      return parseFloat(plan.value) + (toggle.checked ? BUMP : 0);
+    }
     function update() {
       var plan = document.querySelector('input[name="plan"]:checked');
       var base = parseFloat(plan.value);
+      var sum = currentSum();
       planName.textContent = plan.dataset.name;
       planPrice.textContent = '$' + base.toFixed(2);
       line.hidden = !toggle.checked;
-      var sum = base + (toggle.checked ? BUMP : 0);
       total.textContent = '$' + sum.toFixed(2);
-      document.querySelectorAll('.co-plan-embed').forEach(function (el) {
-        el.hidden = parseFloat(el.dataset.planTotal) !== sum;
-      });
+      if (elements) elements.update({ amount: Math.round(sum * 100) });
     }
     toggle.addEventListener('change', update);
     plans.forEach(function (r) { r.addEventListener('change', update); });
+
+    function fail(msg) {
+      errEl.textContent = msg;
+      errEl.style.display = 'block';
+      payBtn.disabled = false;
+      payBtn.innerHTML = '&#128722; Complete Order';
+    }
+
+    payBtn.addEventListener('click', function () {
+      errEl.style.display = 'none';
+      var name = document.getElementById('co-name').value.trim();
+      var email = document.getElementById('co-email').value.trim();
+      if (!email || email.indexOf('@') === -1) return fail('Please enter your email address.');
+      if (!stripe) return fail('Payments are not live yet.');
+      payBtn.disabled = true;
+      payBtn.textContent = 'Processing\u2026';
+
+      var plan = document.querySelector('input[name="plan"]:checked');
+      var planKey = parseFloat(plan.value) === 149 ? 'premium' : 'pro';
+
+      elements.submit().then(function (r) {
+        if (r.error) return fail(r.error.message);
+        fetch('/api/create-payment-intent', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ plan: planKey, bump: toggle.checked, name: name, email: email })
+        })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (!data.clientSecret) return fail(data.error || 'Could not start checkout.');
+          stripe.confirmPayment({
+            elements: elements,
+            clientSecret: data.clientSecret,
+            confirmParams: {
+              return_url: window.location.origin + '/upsell.html',
+              payment_method_data: { billing_details: { name: name, email: email } }
+            }
+          }).then(function (result) {
+            if (result.error) fail(result.error.message);
+          });
+        })
+        .catch(function () { fail('Network error \u2014 you have not been charged.'); });
+      });
+    });
   })();
 </script>
 </body>
