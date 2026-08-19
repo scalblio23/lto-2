@@ -82,10 +82,12 @@ Content lives in one file, `index.html`:
   videos are YouTube iframes. Testimonial copy is verbatim from scalbl.io.
 - **FAQ** — `<details>` elements in `.faq`
 - **Guarantee** — `.guarantee` block after the FAQ
-- **Checkout** — `.checkout` at `#checkout`: name and email fields, item row, the
-  `.co-bump` order bump, order summary, a placeholder where the Whop embed goes, and
-  the Complete Order button. The inline script at the end of `<body>` toggles the
-  bump line and total. Visual only — nothing submits yet.
+- **Checkout** — `.checkout` at `#checkout`: a white order-form card, deliberately
+  light against the dark page, matching the usual order-form conventions — blue
+  prices, yellow dashed order bump, green Complete Order button. Its palette lives in
+  `--co-*` variables scoped to `.checkout`, separate from the page tokens. The inline
+  script at the end of `<body>` toggles the bump line and total. Visual only —
+  nothing submits yet.
 
 ### Known TODOs
 
